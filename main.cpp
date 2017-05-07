@@ -16,9 +16,6 @@ Description:      main file for Assignment 3 - Autocomplete
 #include "trienode.h"
 #include "dictionary.h"
 
-using namespace triewilliams;
-using namespace dictwilliams;
-
 int main(int argc, char *argv[]) {
     //Only one command line arguement is accepted, or program ends
     if(argc != 2) {
@@ -34,21 +31,25 @@ int main(int argc, char *argv[]) {
             return 0;
         }
 
-        Dictionary dict(file);
+        dictwilliams::Dictionary dict(file);
         
         std::string inputString;
         int numSuggestions;
 
         while(true) {
-            std::cout << "Enter a string: ";
+            std::cout << "Enter a string to be autocompleted: ";
             std::cin >> inputString;
 
-            std::cout << "Enter a number: ";
+            std::cout << "Enter number of suggestions: ";
             std::cin >> numSuggestions;
 
             std::vector<std::string> vec = dict.suggest(inputString, numSuggestions);
 
-            for(int i = 0; i < vec.size(); ++i) {
+            if(vec.empty()) {
+                std::cout << "No suggestions!\n"; 
+            }
+
+            for(unsigned int i = 0; i < vec.size(); ++i) {
                 std::cout << vec[i] << std::endl;
             }
         }

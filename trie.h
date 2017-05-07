@@ -56,7 +56,7 @@ private:
     int wordCount_;  //Number of words in Trie
 
     //Recursive helper function for remove
-    bool remove(TrieNode* node, const std::string& word, int level);
+    bool remove(TrieNode* node, const std::string& word, unsigned int level);
     //Returns true if node has no children, false otherwise
     bool noChildren(TrieNode* node) const;
     //Recursive helper function for clear

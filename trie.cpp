@@ -54,7 +54,7 @@ bool Trie::load(std::ifstream& file) {
 bool Trie::insert(const std::string& word) {
     TrieNode* current = root_;
 
-    for(int i = 0; i < word.length(); ++i) {
+    for(unsigned int i = 0; i < word.length(); ++i) {
         
         char currentChar = word[i];
 
@@ -98,9 +98,8 @@ bool Trie::contains(const std::string& word) const {
 
     TrieNode* current = root_;
 
-    for(int i = 0; i < word.length(); ++i) {
+    for(unsigned int i = 0; i < word.length(); ++i) {
 
-        //set current character to lowercase
         char currentChar = word[i];
 
         //get node with location of word[i] in children map of current node
@@ -138,7 +137,7 @@ bool Trie::remove(const std::string& word) {
     }
 }
 
-bool Trie::remove(TrieNode* node, const std::string& word, int level) {
+bool Trie::remove(TrieNode* node, const std::string& word, unsigned int level) {
     if(node == NULL) {
         return false;
     }
@@ -226,7 +225,7 @@ TrieNode* Trie::find(const std::string& word) const {
 
     TrieNode* current = root_;
 
-    for(int i = 0; i < word.length(); ++i) {
+    for(unsigned int i = 0; i < word.length(); ++i) {
 
         //set current character to lowercase
         char currentChar = word[i];
